@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <title>Rock – Paper – Scissors</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <script type="text/javascript">
+  <head>
+    <title>Rock – Paper – Scissors</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script type="text/javascript">
+      function computerPlay () {
+        switch (Math.floor(Math.random() * 3)) {
+          case 0:
+            return 'rock';
+          case 1:
+            return 'paper';
+          case 2:
+            return 'scissors';
+          default:
+            console.error('Computer played something weird!');
+            return;
+        }
+      }
 
-        </script>
-    </body>
+      // TEST
+      for (i = 0; i < 20; i++) {
+        console.log(computerPlay());
+      }
+    </script>
+  </body>
 </html>
