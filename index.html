@@ -52,18 +52,40 @@
               }
           default:
             console.error(`Player played "${playerSelection}", which is not a valid play.`);
-            console.info('Enter either "paper", "rock", or "scissors"')
-            return;
+            console.info('Enter either "paper", "rock", or "scissors"');
+            return playRound(prompt('Player, what is your choice?'),computerSelection);
         }
       }
 
-      // TEST
-      let playerSelection = 'rock'
-      let computerSelection = computerPlay()
-      console.log(playRound(playerSelection, computerSelection))
+      function game () {
+        const nb_games = prompt("How many games you want to play?");
+        console.info('To play, enter either "paper", "rock", or "scissors"');
+        let playerSelection,
+          computerSelection,
+          scorePlayer = 0,
+          scoreComputer = 0;
 
-      playerSelection = 'punk'
-      console.log(playRound(playerSelection, computerSelection))
+        for (i = 0; i < nb_games; i++) {
+          playerSelection = prompt('Player, what is your choice?');
+          computerSelection = computerPlay();
+          gameResult = playRound(playerSelection, computerSelection);
+          console.log(gameResult);
+          if (gameResult.includes('PLAYER')) scorePlayer++;
+          if (gameResult.includes('COMPUTER')) scoreComputer++;
+        }
+
+        if (scorePlayer > scoreComputer) {
+          console.log(`PLAYER wins ${scorePlayer}:${scoreComputer}! Congratulation!`);
+        }
+        else if (scorePlayer < scoreComputer) {
+          console.log(`COMPUTER wins ${scoreComputer}:${scorePlayer}! JS is too strong…`);
+        }
+        else {
+          console.log(`You are tie: ${scorePlayer}:${scoreComputer}!`);
+        }
+      }
+
+      game()
     </script>
   </body>
 </html>
