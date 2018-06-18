@@ -1,9 +1,10 @@
 body {
-  /* background: url(../background.jpg) no-repeat center center fixed; */
-  background-size: cover;
   display: grid;
   grid-template: 1fr 100px 300px 1fr / 1fr 300px 100px 20px 100px 300px 1fr;
   grid-gap: 1ex 1em;
+  background-color: rgba(0,0,0,.70);
+  width: 100vw;
+  height: 100vh;
 }
 div {
   background-color: rgba(0,0,0,.2);
@@ -11,7 +12,14 @@ div {
 button {
   display: block;
 }
-
+#bckgrnd-img{
+  object-fit: cover;
+  z-index: -1;
+  grid-area: 1 / 1 / span 4 / span 7;
+  opacity: .30;
+  width: inherit;
+  height: inherit;
+}
 #name-player {
   grid-area: 2 / 2;
   place-self: end;
@@ -34,7 +42,7 @@ button {
 }
 #player-play {
   grid-area: 3 / 2;
-  place-self: start / end;
+  place-self: start end;
 }
 #computer-play {
   grid-area: 3 / 6;
