@@ -1,4 +1,48 @@
 body {
-  background: url(../background.jpg) no-repeat center center fixed;
+  /* background: url(../background.jpg) no-repeat center center fixed; */
   background-size: cover;
+  display: grid;
+  grid-template: 1fr 100px 300px 1fr / 1fr 300px 100px 20px 100px 300px 1fr;
+  grid-gap: 1ex 1em;
+}
+div {
+  background-color: rgba(0,0,0,.2);
+}
+button {
+  display: block;
+}
+
+#name-player {
+  grid-area: 2 / 2;
+  place-self: end;
+}
+#score-player {
+  grid-area: 2 / 3;
+  place-self: end;
+}
+#score-separator {
+  grid-area: 2 / 4;
+  place-self: end center;
+}
+#score-computer {
+  grid-area: 2 / 5;
+  place-self: end start;
+}
+#name-computer {
+  grid-area: 2 / 6;
+  place-self: end start;
+}
+#player-play {
+  grid-area: 3 / 2;
+  place-self: start / end;
+}
+#computer-play {
+  grid-area: 3 / 6;
+  place-self: start;
+}
+#copyright {
+  bottom: 1ex;
+  right: 1em;
+  text-align: left;
+  position: absolute;
 }
