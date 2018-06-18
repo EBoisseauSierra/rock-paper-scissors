@@ -104,3 +104,15 @@ div {
 #computer-play .play {
   opacity: .618;
 }
+
+.shake-horizontal{
+  animation: shake;
+  animation-duration: .1s;
+  animation-iteration-count: 3;
+}
+@keyframes shake {
+  0% {transform: translateX(0px);}
+  25% {transform: translateX(-5px);}
+  50% {transform: translateX(0px);}
+  75% {transform: translateX(5px);}
+}

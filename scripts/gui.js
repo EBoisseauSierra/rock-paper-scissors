@@ -10,8 +10,15 @@ function playRound(e) {
     playerSelection = e.target.name;
     computerSelection = computerPlay();
     gameResult = defineWinner(playerSelection, computerSelection);
-    if (gameResult === 'player') increaseScorePlayer();
-    if (gameResult === 'computer') increaseScoreComputer();
+    if (gameResult === 'player') {
+        increaseScorePlayer();
+    }
+    else if (gameResult === 'computer') {
+        increaseScoreComputer();
+    }
+    else {
+        shakeScore();
+    }
 }
 
 function computerPlay() {
@@ -84,4 +91,14 @@ function increaseScoreComputer() {
     scoreComputer +=1;
     let scoreText = document.querySelector('#score-computer');
     scoreText.textContent = scoreComputer.toString();
+}
+
+function removeShake(e) {
+    this.classList.remove('shake-horizontal');
+}
+
+function shakeScore() {
+    let scoreElements = document.querySelectorAll('.score');
+    scoreElements.forEach(element => element.classList.add('shake-horizontal'));
+    scoreElements.forEach(element => element.addEventListener('animationend', removeShake));
 }
