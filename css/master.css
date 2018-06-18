@@ -1,22 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed');
 body {
   display: grid;
-  grid-template: 1fr 100px 300px 1fr / 1fr 300px 100px 20px 100px 300px 1fr;
+  grid-template: 1fr 210px 300px 1fr / 1fr 300px 100px 20px 100px 300px 1fr;
   grid-gap: 1ex 1em;
-  background-color: rgba(0,0,0,.70);
+  background-color: rgba(0, 43, 18,.618);
   width: 100vw;
   height: 100vh;
+  font-family: 'Encode Sans Condensed', sans-serif;
 }
 div {
-  background-color: rgba(0,0,0,.2);
+  /* background-color: rgba(0,0,0,.2); */
 }
-button {
-  display: block;
-}
+
 #bckgrnd-img{
   object-fit: cover;
   z-index: -1;
   grid-area: 1 / 1 / span 4 / span 7;
-  opacity: .30;
+  opacity: .2;
   width: inherit;
   height: inherit;
 }
@@ -53,4 +53,54 @@ button {
   right: 1em;
   text-align: left;
   position: absolute;
+  font-family: 'Encode Sans Condensed', sans-serif;
+  font-size: 10px;
+  color: #fff9d4;
+}
+  #copyright a {
+    color: #fff9d4;
+    text-decoration: none;
+  }
+  #copyright a:hover {
+    color: #ffd000;
+  }
+
+.name{
+  font-size: 42px;
+  color: #fff9d4;
+}
+
+.score{
+  font-size: 210px;
+  color: #fff9d4;
+}
+.play-container {
+  width: 100%;
+}
+.play {
+  display: block;
+  font-size: 30px;
+  width: 100%;
+  height: 2em;
+  line-height: 2em;
+  border: none;
+  margin-top: 1em;
+  text-align: center;
+  font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.play {
+  background-color: #f06c00;
+  transition: all .3s;
+}
+  #player-play .play:hover {
+    background-color: #ffd000;
+    box-shadow: 0 0 13px #555;
+  }
+  #player-play .play:active {
+    box-shadow: none;
+  }
+
+#computer-play .play {
+  opacity: .618;
 }
