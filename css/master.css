@@ -96,6 +96,7 @@ div {
   button:hover {
     background-color: #ffd000;
     box-shadow: 0 0 13px #555;
+    cursor: pointer;
   }
   button:active {
     box-shadow: none;
