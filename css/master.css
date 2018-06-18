@@ -93,15 +93,15 @@ div {
   background-color: #f06c00;
   transition: all .3s;
 }
-  #player-play .play:hover {
+  button:hover {
     background-color: #ffd000;
     box-shadow: 0 0 13px #555;
   }
-  #player-play .play:active {
+  button:active {
     box-shadow: none;
   }
 
-#computer-play .play {
+.computer-play .play {
   opacity: .618;
 }
 
@@ -115,4 +115,31 @@ div {
   25% {transform: translateX(-5px);}
   50% {transform: translateX(0px);}
   75% {transform: translateX(5px);}
+}
+
+.winner{
+  animation: win;
+  animation-duration: .6s;
+  animation-iteration-count: 1;
+}
+@keyframes win {
+  50% {background-color: #c6df5f;}
+}
+
+.looser{
+  animation: loose;
+  animation-duration: .6s;
+  animation-iteration-count: 1;
+}
+@keyframes loose {
+  50% {background-color: #fe0229;}
+}
+
+.tie{
+  animation: tie;
+  animation-duration: .3s;
+  animation-iteration-count: 1;
+}
+@keyframes tie {
+  50% {background-color: #fff9d4;}
 }

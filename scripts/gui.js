@@ -10,6 +10,21 @@ function playRound(e) {
     playerSelection = e.target.name;
     computerSelection = computerPlay();
     gameResult = defineWinner(playerSelection, computerSelection);
+    let userPlayedElement = e.target;
+    let computerPlayedElement;
+    switch (computerSelection) {
+        case 'rock':
+            computerPlayedElement = document.querySelector('.computer-rock');
+            break;
+        case 'paper':
+            computerPlayedElement = document.querySelector('.computer-paper');
+            break;
+        case 'scissors':
+            computerPlayedElement = document.querySelector('.computer-scissors');
+            break;
+        default:
+            console.error('Undefined computer played element');
+    }
     if (gameResult === 'player') {
         increaseScorePlayer();
     }
@@ -19,6 +34,7 @@ function playRound(e) {
     else {
         shakeScore();
     }
+    highlightWinnerLooser(gameResult, userPlayedElement, computerPlayedElement);
 }
 
 function computerPlay() {
@@ -101,4 +117,37 @@ function shakeScore() {
     let scoreElements = document.querySelectorAll('.score');
     scoreElements.forEach(element => element.classList.add('shake-horizontal'));
     scoreElements.forEach(element => element.addEventListener('animationend', removeShake));
+}
+
+function highlightWinnerLooser(winner, userPlayedElement, computerPlayedElement) {
+    if (winner === 'player') {
+        userPlayedElement.classList.add('winner');
+        userPlayedElement.addEventListener('animationend', removeWinner);
+        computerPlayedElement.classList.add('looser');
+        computerPlayedElement.addEventListener('animationend', removeLooser)
+    }
+    else if (winner === 'computer') {
+        userPlayedElement.classList.add('looser');
+        userPlayedElement.addEventListener('animationend', removeLooser)
+        computerPlayedElement.classList.add('winner');
+        computerPlayedElement.addEventListener('animationend', removeWinner);
+    }
+    else {
+        userPlayedElement.classList.add('tie');
+        userPlayedElement.addEventListener('animationend', removeTie)
+        computerPlayedElement.classList.add('tie');
+        computerPlayedElement.addEventListener('animationend', removeTie)
+    }
+}
+
+function removeWinner () {
+    this.classList.remove('winner');
+}
+
+function removeLooser () {
+    this.classList.remove('looser');
+}
+
+function removeTie () {
+    this.classList.remove('tie');
 }
